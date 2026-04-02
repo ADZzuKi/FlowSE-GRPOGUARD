@@ -1,0 +1,95 @@
+train:
+  checkpoint: /mnt/adz/logs/exp_grpo_flowSE_lr1e-4linear1_oval_cfg0_latest0401/
+  tensorboard_dir: /mnt/adz/logs/exp_grpo_flowSE_lr1e-4linear1_oval_cfg0_latest0401/tensorboard_logs/
+  resume: /mnt/adz/logs/exp_sft_flowSE_326h_premium_noreverb_ema_fromori/step_66000.pt.tar
+  save_period: 100
+  seed: 45
+
+grpo:
+  rl_batch_slice: 4      
+  group_size: 16          
+  ppo_epochs: 1          
+  clip_eps: 0.2          
+  beta_kl: 0.1          
+  sde_a: 0.4             
+  denoise_steps: 12   
+  #如果需要从断点重训
+  # resume_dir: "/mnt/adz/logs/exp_grpo_flowSE_lr1e-4linear1_oval/grpo_step_1500"   
+
+lora:
+  r: 32                  
+  alpha: 64              
+  dropout: 0.0
+  target_modules: 
+    - "to_q"
+    - "to_k"
+    - "to_v"
+    - "to_out.0"
+    - "ff.0.0"
+    - "ff.2"
+    
+reward:
+  dnsmos_dir: /mnt/adz/DNSMOS/
+  weights:
+    ovrl: 1.0
+    sig: 0
+    bak: 0
+    spk: 0
+
+optim:
+  lr: 1.0e-4
+  gradient_clip: 5.0
+
+model: &model_conf
+  tokenizer: pinyin
+  tokenizer_path: ./Emilia_ZH_EN_pinyin/vocab.txt
+  audio_drop_prob: 0
+  cond_drop_prob: 0
+
+  arch:
+    dim: 1024
+    depth: 22
+    heads: 16
+    ff_mult: 2
+    checkpoint_activations: True 
+
+  mel_spec:
+    target_sample_rate: 24000
+    n_mel_channels: 100
+    hop_length: 256
+    win_length: 1024
+    n_fft: 1024
+    mel_spec_type: vocos  
+
+  vocoder:
+    is_local: True 
+    local_path: /mnt/adz/vocos  
+
+datasets:
+  train:
+    clean_scp: /mnt/adz/data/scps/sft_premium_segmented_withoutval.scp 
+    regular_noise_scp: /mnt/adz/data/train_noise_shuffled.scp 
+    rir_scp: /mnt/adz/data/train_rir_shuffled.scp        
+    text_scp: ""
+
+  dataloader_setting:
+    repeat: 1 
+    batch_size: 80000     
+    max_samples: 4      
+    num_workers: 4
+    sample_rate: 16000
+    
+    probability:
+      p1: 100 
+      p2: 0  
+      p3: 0  
+      p4: 0   
+      p5: 0  
+      p6: 0   
+    snr_ranges:
+      "-5_to_0": 0.15     
+      "0_to_5": 0.3
+      "5_to_10": 0.35
+      "10_to_20": 0.2
+    scale_ranges:
+      "-35_to_-15": 1.0
