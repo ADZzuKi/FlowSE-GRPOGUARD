@@ -1,0 +1,101 @@
+train:
+  epoch: 50
+  early_stop: 20
+  checkpoint: ./logs/exp_sft_flowSE_326h_premium_noreverb_ema_fromori/
+  resume: ./weights/wenetspeech4tts_Premium.pt.tar
+  reload_best_loss: False
+  reset_lr: True
+  strict: False
+  rm_stft: False
+  save_period: 1
+  save_checkpoint_steps: 3000
+  seed: 42
+
+model: &model_conf
+  tokenizer: pinyin
+  tokenizer_path: ./Emilia_ZH_EN_pinyin/vocab.txt
+  audio_drop_prob: 0
+  cond_drop_prob: 0
+
+  arch:
+    dim: 1024
+    depth: 22
+    heads: 16
+    ff_mult: 2
+    checkpoint_activations: False
+
+  mel_spec:
+    target_sample_rate: 24000
+    n_mel_channels: 100
+    hop_length: 256
+    win_length: 1024
+    n_fft: 1024
+    mel_spec_type: vocos
+
+  vocoder:
+    is_local: True
+    local_path: ./vocos
+
+optim:
+  lr: 5.0e-6
+  warm_up_step: 1000
+  max_epoch: 50
+  grad_accumulation_steps: 1
+  gradient_clip: 5.0
+
+logger:
+  path:
+  print_freq: 100
+
+datasets:
+  train:
+    clean_scp: ./data/scps/sft_premium_segmented_withoutval.scp
+    regular_noise_scp: ./data/train_noise_shuffled.scp
+    rir_scp: ./data/train_rir_shuffled.scp
+    text_scp: ""
+    
+  val:
+    clean_scp: ./data/scps/val_clean.scp
+    regular_noise_scp: ./data/val_noise.scp
+    rir_scp: ./data/val_rir.scp
+    text_scp: ""
+
+  dataloader_setting:
+    repeat: 1
+    batch_size: 80000
+    max_samples: 64
+    num_workers: 8
+    sample_rate: 16000
+
+    probability:
+      p1: 80
+      p2: 20
+      p3: 0
+      p4: 0
+      p5: 0
+      p6: 0
+
+    snr_ranges:
+      "-5_to_0": 0.15
+      "0_to_5": 0.3
+      "5_to_10": 0.35
+      "10_to_20": 0.2
+
+    scale_ranges:
+      "-35_to_-15": 1.0
+
+infer:
+  test:
+    checkpoint: ckpts
+    cond_type: noisy
+    pt_name: wenetspeech4tts_Premium.pt.tar
+    use_cuda: True
+  save:
+    dir: test_out
+    fs: 16000
+  datareader:
+    mix_json: datalist/test/text.json
+    mix_dir: datalist/test/noisy
+    mix_fs: 16000
+  model:
+    *model_conf
