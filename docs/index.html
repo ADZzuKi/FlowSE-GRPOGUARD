@@ -18,14 +18,11 @@
             --tag-bg: #f0ede6;
             --tag-fg: #6b5e4c;
             --table-header: #f5f5f2;
-            --highlight: #fff3cd;
             --serif: 'Source Serif 4', Georgia, serif;
             --sans: 'DM Sans', -apple-system, sans-serif;
             --mono: 'JetBrains Mono', monospace;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: var(--sans);
             background: var(--bg);
@@ -33,8 +30,6 @@
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
-
-        /* ---- Header ---- */
         .hero {
             max-width: 860px;
             margin: 0 auto;
@@ -46,181 +41,89 @@
             font-size: 2.2rem;
             font-weight: 700;
             line-height: 1.3;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .hero .authors {
+            font-size: 1.05rem;
+            color: var(--fg);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .hero .affiliation {
+            font-size: 0.9rem;
+            color: var(--fg-muted);
+            margin-bottom: 20px;
         }
         .hero .subtitle {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--fg-muted);
             margin-bottom: 24px;
         }
         .tags {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
+            display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;
         }
         .tag {
-            background: var(--tag-bg);
-            color: var(--tag-fg);
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 0.82rem;
-            font-weight: 500;
+            background: var(--tag-bg); color: var(--tag-fg);
+            padding: 4px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 500;
         }
         .links a {
-            display: inline-block;
-            margin: 0 10px;
-            padding: 8px 20px;
-            border: 1.5px solid var(--border);
-            border-radius: 6px;
-            text-decoration: none;
-            color: var(--fg);
-            font-size: 0.9rem;
-            font-weight: 500;
+            display: inline-block; margin: 0 10px; padding: 8px 20px;
+            border: 1.5px solid var(--border); border-radius: 6px;
+            text-decoration: none; color: var(--fg); font-size: 0.9rem; font-weight: 500;
             transition: all 0.2s;
         }
         .links a:hover {
-            border-color: var(--accent);
-            background: var(--accent-light);
-            color: var(--accent);
+            border-color: var(--accent); background: var(--accent-light); color: var(--accent);
         }
-
-        /* ---- Sections ---- */
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 24px 80px;
-        }
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
         section { margin-bottom: 56px; }
         h2 {
-            font-family: var(--serif);
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--accent);
-            display: inline-block;
+            font-family: var(--serif); font-size: 1.5rem; font-weight: 600;
+            margin-bottom: 16px; padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent); display: inline-block;
         }
-        h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin: 24px 0 8px;
-        }
-        p {
-            margin-bottom: 12px;
-            color: var(--fg-muted);
-            font-size: 0.95rem;
-        }
-
-        /* ---- Audio Demo ---- */
+        h3 { font-size: 1.05rem; font-weight: 600; margin: 24px 0 8px; }
+        p { margin-bottom: 12px; color: var(--fg-muted); font-size: 0.95rem; }
         .sample-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 24px;
-            margin-bottom: 24px;
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 10px; padding: 24px; margin-bottom: 24px;
         }
         .sample-card h3 {
-            margin-top: 0;
-            font-family: var(--mono);
-            font-size: 0.95rem;
-            color: var(--accent);
+            margin-top: 0; font-family: var(--mono); font-size: 0.95rem; color: var(--accent);
         }
         .audio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 16px;
-            margin-top: 16px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px; margin-top: 16px;
         }
-        .audio-item {
-            text-align: center;
-        }
+        .audio-item { text-align: center; }
         .audio-item label {
-            display: block;
-            font-size: 0.82rem;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: var(--fg);
+            display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; color: var(--fg);
         }
-        .audio-item audio {
-            width: 100%;
-            height: 40px;
-        }
-
-        /* ---- Results Table ---- */
-        .table-wrap {
-            overflow-x: auto;
-            margin-top: 12px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.88rem;
-        }
+        .audio-item audio { width: 100%; height: 40px; }
+        .table-wrap { overflow-x: auto; margin-top: 12px; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
         thead th {
-            background: var(--table-header);
-            font-weight: 600;
-            text-align: center;
-            padding: 10px 12px;
-            border-bottom: 2px solid var(--border);
-            white-space: nowrap;
+            background: var(--table-header); font-weight: 600; text-align: center;
+            padding: 10px 12px; border-bottom: 2px solid var(--border); white-space: nowrap;
         }
         thead th:first-child { text-align: left; }
-        tbody td {
-            text-align: center;
-            padding: 9px 12px;
-            border-bottom: 1px solid #eee;
-        }
-        tbody td:first-child {
-            text-align: left;
-            font-weight: 500;
-        }
-        tr.ours td {
-            background: var(--accent-light);
-            font-weight: 600;
-        }
+        tbody td { text-align: center; padding: 9px 12px; border-bottom: 1px solid #eee; }
+        tbody td:first-child { text-align: left; font-weight: 500; }
+        tr.ours td { background: var(--accent-light); font-weight: 600; }
         .best { color: var(--accent); font-weight: 700; }
         .second { text-decoration: underline; }
-
-        /* ---- Spectrogram ---- */
-        .spec-fig {
-            margin-top: 16px;
-            text-align: center;
-        }
-        .spec-fig img {
-            max-width: 100%;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-        .spec-fig figcaption {
-            font-size: 0.82rem;
-            color: var(--fg-muted);
-            margin-top: 8px;
-        }
-
-        /* ---- Abstract ---- */
+        .spec-fig { margin-top: 16px; text-align: center; }
+        .spec-fig img { max-width: 100%; border: 1px solid var(--border); border-radius: 8px; }
+        .spec-fig figcaption { font-size: 0.82rem; color: var(--fg-muted); margin-top: 8px; }
         .abstract-box {
-            background: var(--card-bg);
-            border-left: 4px solid var(--accent);
-            padding: 20px 24px;
-            border-radius: 0 8px 8px 0;
+            background: var(--card-bg); border-left: 4px solid var(--accent);
+            padding: 20px 24px; border-radius: 0 8px 8px 0;
         }
-        .abstract-box p {
-            margin-bottom: 8px;
-            font-size: 0.92rem;
-            line-height: 1.75;
-        }
-
-        /* ---- Footer ---- */
+        .abstract-box p { margin-bottom: 8px; font-size: 0.92rem; line-height: 1.75; }
         footer {
-            text-align: center;
-            padding: 32px 24px;
-            font-size: 0.82rem;
-            color: #999;
-            border-top: 1px solid var(--border);
+            text-align: center; padding: 32px 24px; font-size: 0.82rem;
+            color: #999; border-top: 1px solid var(--border);
         }
-
         @media (max-width: 600px) {
             .hero h1 { font-size: 1.5rem; }
             .audio-grid { grid-template-columns: 1fr 1fr; }
@@ -229,11 +132,10 @@
 </head>
 <body>
 
-<!-- ================================================================ -->
-<!-- HERO -->
-<!-- ================================================================ -->
 <div class="hero">
     <h1>Post-Training Optimization for Conditional Flow Matching Speech Enhancement</h1>
+    <p class="authors">Zixin Wang</p>
+    <p class="affiliation">Supervisor: Dr. Wei Rao &middot; Prof. Eng Siong Chng<br>Nanyang Technological University</p>
     <p class="subtitle">
         A PT-SFT-RL framework with GRPO-GUARD stabilization for a 336M-parameter CFM model
     </p>
@@ -251,9 +153,6 @@
 
 <div class="container">
 
-<!-- ================================================================ -->
-<!-- ABSTRACT -->
-<!-- ================================================================ -->
 <section>
     <h2>Abstract</h2>
     <div class="abstract-box">
@@ -272,14 +171,11 @@
             RL alignment for flow matching, incorporating RatioNorm, gradient balancing, and MSE-based
             KL divergence. The resulting system achieves DNSMOS OVRL 3.415 on the DNS 2020 No Reverb
             test set with an RTF of 0.066, outperforming all compared baselines while running over
-            50x faster than diffusion-based alternatives.
+            50&times; faster than diffusion-based alternatives.
         </p>
     </div>
 </section>
 
-<!-- ================================================================ -->
-<!-- AUDIO DEMOS -->
-<!-- ================================================================ -->
 <section>
     <h2>Audio Demos</h2>
     <p>
@@ -288,118 +184,51 @@
         <strong>We recommend using headphones for the best listening experience.</strong>
     </p>
 
-    <!-- Sample 1 -->
     <div class="sample-card">
         <h3>Sample 1 &mdash; fileid_191</h3>
         <div class="audio-grid">
-            <div class="audio-item">
-                <label>Noisy</label>
-                <audio controls preload="none" src="audio/sample_0_fileid_191/noisy.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>Clean</label>
-                <audio controls preload="none" src="audio/sample_0_fileid_191/clean.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>FlowSE (Base)</label>
-                <audio controls preload="none" src="audio/sample_0_fileid_191/base.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>FlowSE-SFT</label>
-                <audio controls preload="none" src="audio/sample_0_fileid_191/sft.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>FlowSE-GRPO</label>
-                <audio controls preload="none" src="audio/sample_0_fileid_191/grpo.wav"></audio>
-            </div>
+            <div class="audio-item"><label>Noisy</label><audio controls preload="none" src="audio/sample_0_fileid_191/noisy.wav"></audio></div>
+            <div class="audio-item"><label>Clean</label><audio controls preload="none" src="audio/sample_0_fileid_191/clean.wav"></audio></div>
+            <div class="audio-item"><label>FlowSE (Base)</label><audio controls preload="none" src="audio/sample_0_fileid_191/base.wav"></audio></div>
+            <div class="audio-item"><label>FlowSE-SFT</label><audio controls preload="none" src="audio/sample_0_fileid_191/sft.wav"></audio></div>
+            <div class="audio-item"><label>FlowSE-GRPO</label><audio controls preload="none" src="audio/sample_0_fileid_191/grpo.wav"></audio></div>
         </div>
     </div>
 
-    <!-- Sample 2 -->
     <div class="sample-card">
         <h3>Sample 2 &mdash; fileid_232</h3>
         <div class="audio-grid">
-            <div class="audio-item">
-                <label>Noisy</label>
-                <audio controls preload="none" src="audio/sample_1_fileid_232/noisy.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>Clean</label>
-                <audio controls preload="none" src="audio/sample_1_fileid_232/clean.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>FlowSE (Base)</label>
-                <audio controls preload="none" src="audio/sample_1_fileid_232/base.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>FlowSE-SFT</label>
-                <audio controls preload="none" src="audio/sample_1_fileid_232/sft.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>FlowSE-GRPO</label>
-                <audio controls preload="none" src="audio/sample_1_fileid_232/grpo.wav"></audio>
-            </div>
+            <div class="audio-item"><label>Noisy</label><audio controls preload="none" src="audio/sample_1_fileid_232/noisy.wav"></audio></div>
+            <div class="audio-item"><label>Clean</label><audio controls preload="none" src="audio/sample_1_fileid_232/clean.wav"></audio></div>
+            <div class="audio-item"><label>FlowSE (Base)</label><audio controls preload="none" src="audio/sample_1_fileid_232/base.wav"></audio></div>
+            <div class="audio-item"><label>FlowSE-SFT</label><audio controls preload="none" src="audio/sample_1_fileid_232/sft.wav"></audio></div>
+            <div class="audio-item"><label>FlowSE-GRPO</label><audio controls preload="none" src="audio/sample_1_fileid_232/grpo.wav"></audio></div>
         </div>
     </div>
 
-    <!-- Sample 3 -->
     <div class="sample-card">
         <h3>Sample 3 &mdash; fileid_2</h3>
         <div class="audio-grid">
-            <div class="audio-item">
-                <label>Noisy</label>
-                <audio controls preload="none" src="audio/sample_2_fileid_2/noisy.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>Clean</label>
-                <audio controls preload="none" src="audio/sample_2_fileid_2/clean.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>FlowSE (Base)</label>
-                <audio controls preload="none" src="audio/sample_2_fileid_2/base.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>FlowSE-SFT</label>
-                <audio controls preload="none" src="audio/sample_2_fileid_2/sft.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>FlowSE-GRPO</label>
-                <audio controls preload="none" src="audio/sample_2_fileid_2/grpo.wav"></audio>
-            </div>
+            <div class="audio-item"><label>Noisy</label><audio controls preload="none" src="audio/sample_2_fileid_2/noisy.wav"></audio></div>
+            <div class="audio-item"><label>Clean</label><audio controls preload="none" src="audio/sample_2_fileid_2/clean.wav"></audio></div>
+            <div class="audio-item"><label>FlowSE (Base)</label><audio controls preload="none" src="audio/sample_2_fileid_2/base.wav"></audio></div>
+            <div class="audio-item"><label>FlowSE-SFT</label><audio controls preload="none" src="audio/sample_2_fileid_2/sft.wav"></audio></div>
+            <div class="audio-item"><label>FlowSE-GRPO</label><audio controls preload="none" src="audio/sample_2_fileid_2/grpo.wav"></audio></div>
         </div>
     </div>
 
-    <!-- Sample 4 -->
     <div class="sample-card">
         <h3>Sample 4 &mdash; fileid_125</h3>
         <div class="audio-grid">
-            <div class="audio-item">
-                <label>Noisy</label>
-                <audio controls preload="none" src="audio/sample_3_fileid_125/noisy.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>Clean</label>
-                <audio controls preload="none" src="audio/sample_3_fileid_125/clean.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>FlowSE (Base)</label>
-                <audio controls preload="none" src="audio/sample_3_fileid_125/base.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>FlowSE-SFT</label>
-                <audio controls preload="none" src="audio/sample_3_fileid_125/sft.wav"></audio>
-            </div>
-            <div class="audio-item">
-                <label>FlowSE-GRPO</label>
-                <audio controls preload="none" src="audio/sample_3_fileid_125/grpo.wav"></audio>
-            </div>
+            <div class="audio-item"><label>Noisy</label><audio controls preload="none" src="audio/sample_3_fileid_125/noisy.wav"></audio></div>
+            <div class="audio-item"><label>Clean</label><audio controls preload="none" src="audio/sample_3_fileid_125/clean.wav"></audio></div>
+            <div class="audio-item"><label>FlowSE (Base)</label><audio controls preload="none" src="audio/sample_3_fileid_125/base.wav"></audio></div>
+            <div class="audio-item"><label>FlowSE-SFT</label><audio controls preload="none" src="audio/sample_3_fileid_125/sft.wav"></audio></div>
+            <div class="audio-item"><label>FlowSE-GRPO</label><audio controls preload="none" src="audio/sample_3_fileid_125/grpo.wav"></audio></div>
         </div>
     </div>
 </section>
 
-<!-- ================================================================ -->
-<!-- RESULTS TABLE -->
-<!-- ================================================================ -->
 <section>
     <h2>Experimental Results</h2>
     <p>
@@ -411,125 +240,67 @@
         <table>
             <thead>
                 <tr>
-                    <th>System</th>
-                    <th>Type</th>
-                    <th>SIG &uarr;</th>
-                    <th>BAK &uarr;</th>
-                    <th>OVRL &uarr;</th>
-                    <th>Spk Sim &uarr;</th>
-                    <th>WER(%) &darr;</th>
-                    <th>RTF &darr;</th>
+                    <th>System</th><th>Type</th>
+                    <th>SIG &uarr;</th><th>BAK &uarr;</th><th>OVRL &uarr;</th>
+                    <th>Spk Sim &uarr;</th><th>WER(%) &darr;</th><th>RTF &darr;</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Noisy (unprocessed)</td>
-                    <td>&mdash;</td>
-                    <td>3.392</td>
-                    <td>2.618</td>
-                    <td>2.483</td>
-                    <td class="best">0.969</td>
-                    <td>28.10</td>
-                    <td>&mdash;</td>
+                    <td>Noisy (unprocessed)</td><td>&mdash;</td>
+                    <td>3.392</td><td>2.618</td><td>2.483</td>
+                    <td class="best">0.969</td><td>28.10</td><td>&mdash;</td>
                 </tr>
                 <tr>
-                    <td>TF-GridNet</td>
-                    <td>Regression</td>
-                    <td>3.550</td>
-                    <td>3.012</td>
-                    <td>3.315</td>
-                    <td>0.840</td>
-                    <td>&mdash;</td>
-                    <td>&mdash;</td>
+                    <td>TF-GridNet</td><td>Regression</td>
+                    <td>3.550</td><td>3.012</td><td>3.315</td>
+                    <td>0.840</td><td>&mdash;</td><td>&mdash;</td>
                 </tr>
                 <tr>
-                    <td>CDiffuSE</td>
-                    <td>Diffusion</td>
-                    <td>3.294</td>
-                    <td>3.641</td>
-                    <td>3.047</td>
-                    <td>0.765</td>
-                    <td>15.31</td>
-                    <td>3.30</td>
+                    <td>CDiffuSE</td><td>Diffusion</td>
+                    <td>3.294</td><td>3.641</td><td>3.047</td>
+                    <td>0.765</td><td>15.31</td><td>3.30</td>
                 </tr>
                 <tr>
-                    <td>SGMSE</td>
-                    <td>Diffusion</td>
-                    <td>3.501</td>
-                    <td>3.710</td>
-                    <td>3.137</td>
-                    <td>0.782</td>
-                    <td>13.97</td>
-                    <td>3.27</td>
+                    <td>SGMSE</td><td>Diffusion</td>
+                    <td>3.501</td><td>3.710</td><td>3.137</td>
+                    <td>0.782</td><td>13.97</td><td>3.27</td>
                 </tr>
                 <tr>
-                    <td>StoRM</td>
-                    <td>Diffusion</td>
-                    <td>3.514</td>
-                    <td>3.941</td>
-                    <td>3.205</td>
-                    <td>0.798</td>
-                    <td>14.00</td>
-                    <td>3.49</td>
+                    <td>StoRM</td><td>Diffusion</td>
+                    <td>3.514</td><td>3.941</td><td>3.205</td>
+                    <td>0.798</td><td>14.00</td><td>3.49</td>
                 </tr>
                 <tr>
-                    <td>SELM</td>
-                    <td>LM</td>
-                    <td>3.508</td>
-                    <td>4.096</td>
-                    <td>3.258</td>
-                    <td>0.810</td>
-                    <td>&mdash;</td>
-                    <td>&mdash;</td>
+                    <td>SELM</td><td>LM</td>
+                    <td>3.508</td><td>4.096</td><td>3.258</td>
+                    <td>0.810</td><td>&mdash;</td><td>&mdash;</td>
                 </tr>
                 <tr>
-                    <td>MaskSR</td>
-                    <td>LM</td>
-                    <td>3.586</td>
-                    <td>4.116</td>
-                    <td>3.339</td>
-                    <td class="second">0.929</td>
-                    <td>&mdash;</td>
-                    <td>&mdash;</td>
+                    <td>MaskSR</td><td>LM</td>
+                    <td>3.586</td><td>4.116</td><td>3.339</td>
+                    <td class="second">0.929</td><td>&mdash;</td><td>&mdash;</td>
                 </tr>
                 <tr>
-                    <td>FlowSE</td>
-                    <td>Flow Matching</td>
-                    <td>3.485</td>
-                    <td>4.047</td>
-                    <td>3.216</td>
-                    <td>0.855</td>
-                    <td>9.59</td>
-                    <td class="second">0.234</td>
+                    <td>FlowSE</td><td>Flow Matching</td>
+                    <td>3.485</td><td>4.047</td><td>3.216</td>
+                    <td>0.855</td><td>9.59</td><td class="second">0.234</td>
                 </tr>
                 <tr class="ours">
-                    <td>FlowSE-SFT (ours)</td>
-                    <td>Flow Matching</td>
-                    <td class="second">3.621</td>
-                    <td class="second">4.144</td>
-                    <td class="second">3.386</td>
-                    <td>0.906</td>
-                    <td class="best">7.16</td>
-                    <td class="best">0.066</td>
+                    <td>FlowSE-SFT (ours)</td><td>Flow Matching</td>
+                    <td class="second">3.621</td><td class="second">4.144</td><td class="second">3.386</td>
+                    <td>0.906</td><td class="best">7.16</td><td class="best">0.066</td>
                 </tr>
                 <tr class="ours">
-                    <td>FlowSE-GRPO (ours)</td>
-                    <td>Flow Matching</td>
-                    <td class="best">3.644</td>
-                    <td class="best">4.164</td>
-                    <td class="best">3.415</td>
-                    <td>0.899</td>
-                    <td class="second">7.28</td>
-                    <td class="best">0.066</td>
+                    <td>FlowSE-GRPO (ours)</td><td>Flow Matching</td>
+                    <td class="best">3.644</td><td class="best">4.164</td><td class="best">3.415</td>
+                    <td>0.899</td><td class="second">7.28</td><td class="best">0.066</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </section>
 
-<!-- ================================================================ -->
-<!-- SPECTROGRAM -->
-<!-- ================================================================ -->
 <section>
     <h2>Spectrogram Comparison</h2>
     <p>
@@ -537,7 +308,6 @@
         Clean reference, Noisy input, FlowSE (base), FlowSE-SFT, and FlowSE-GRPO.
     </p>
     <figure class="spec-fig">
-        <!-- TODO: 将频谱图放到 figures/ 文件夹 -->
         <img src="figures/Figure_Spectrogram_Main.png" alt="Mel-spectrogram comparison">
         <figcaption>
             Figure 1. Mel-spectrogram comparison on four DNS 2020 No Reverb test utterances.
@@ -545,9 +315,6 @@
     </figure>
 </section>
 
-<!-- ================================================================ -->
-<!-- METHOD OVERVIEW -->
-<!-- ================================================================ -->
 <section>
     <h2>Method Overview</h2>
     <p>
@@ -574,13 +341,12 @@
         training through RatioNorm, gradient balancing, and MSE-based KL divergence,
         preventing the reward hacking observed in vanilla Flow-GRPO.
     </p>
-
 </section>
 
 </div>
 
 <footer>
-    &copy; 2026 &middot; Master's Thesis Demo Page
+    Zixin Wang &middot; Nanyang Technological University &middot; 2026
 </footer>
 
 </body>
